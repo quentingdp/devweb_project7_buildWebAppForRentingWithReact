@@ -12,7 +12,7 @@ const MainStyle = styled.main`
     max-width: 1440px;
 `
 
-const Home = () => {
+const Home = ({ updateCurrentPage }) => {
     return (
         <MainStyle>
             <Banner
@@ -20,7 +20,7 @@ const Home = () => {
                 alt="Image de bannière de la page d'accueil"
                 description="Chez vous, partout et ailleurs"
             />
-            <Card />
+            <Card updateCurrentPage={updateCurrentPage} />
         </MainStyle>
     )
 }

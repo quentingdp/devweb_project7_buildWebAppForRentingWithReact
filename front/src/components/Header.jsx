@@ -16,10 +16,10 @@ const HeaderStyle = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0 44px 0;
+    padding-top: 40px;
 
     @media (max-width: 768px) {
-        padding: 20px 0 17px 0;
+        padding-top: 20px;
         font-size: 12px;
         text-transform: uppercase;
     }
@@ -47,19 +47,44 @@ const HeaderStyle = styled.header`
             text-decoration: underline;
         }
     }
+
+    .current-page {
+        text-decoration: underline;
+    }
 `
 /**
  * Formatting of the header : only one of the 2 logos will be displayed, cf. the Logo component
  * @returns
  */
-const Header = () => {
+const Header = ({ currentPage, updateCurrentPage }) => {
+    //Define if the class "current-page" should be applied : i.e. we underline links if the current route corresponds to the link destination
+    let classHomePage = ""
+    let classAboutPage = ""
+    if (currentPage === "/") {
+        classHomePage = "current-page"
+    } else if (currentPage === "/about") {
+        classAboutPage = "current-page"
+    }
+
     return (
         <HeaderStyle>
             <Logo src={logoDesktop} device="Desktop" />
             <Logo src={logoMobile} device="Mobile" />
             <nav>
-                <Link to="/">Accueil</Link>
-                <Link to="/about">A Propos</Link>
+                <Link
+                    to="/"
+                    className={classHomePage}
+                    onClick={() => updateCurrentPage("/")}
+                >
+                    Accueil
+                </Link>
+                <Link
+                    to="/about"
+                    className={classAboutPage}
+                    onClick={() => updateCurrentPage("/about")}
+                >
+                    A Propos
+                </Link>
             </nav>
         </HeaderStyle>
     )
