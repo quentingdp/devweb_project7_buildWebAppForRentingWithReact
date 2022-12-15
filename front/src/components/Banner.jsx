@@ -3,14 +3,12 @@ import styled from "styled-components"
 
 const BannerStyle = styled.div`
     height: 223px;
-    padding: 0 100px 0 100px;
     font-weight: 500;
     font-size: 48px;
     color: white;
     position: relative;
 
     @media (max-width: 768px) {
-        padding: 0 20px 0 20px;
         font-size: 24px;
         height: 111px;
     }

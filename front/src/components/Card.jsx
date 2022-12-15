@@ -2,9 +2,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-//Internal dependancies
-import test from "../images/banner_about.png"
-
 const CardStyle = styled(Link)`
     width: 340px;
     height: 340px;
@@ -21,7 +18,7 @@ const CardStyle = styled(Link)`
     }
 
     @media (max-width: 768px) {
-        width: 335px;
+        width: unset;
         height: 255px;
     }
 
@@ -57,15 +54,16 @@ const CardStyle = styled(Link)`
     }
 `
 
-const Card = ({ updateCurrentPage }) => {
+const Card = ({ updateCurrentPage, id, cover, alt, title }) => {
+    const relativePath = "/lodging/" + id
     return (
         <CardStyle
-            to="/lodging/fkjfldmsqj"
-            onClick={() => updateCurrentPage("/lodging/fkjfldmsqj")}
+            to={relativePath}
+            onClick={() => updateCurrentPage(relativePath)}
         >
-            <img src={test} alt="notProvided" />
+            <img src={cover} alt={alt} />
             <div className="opacity-filter"></div>
-            <p>Titre de la location</p>
+            <p>{title}</p>
         </CardStyle>
     )
 }
