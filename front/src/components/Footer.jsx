@@ -8,6 +8,30 @@ import logoFooter from "../images/logo_footer.svg"
 const FooterStyle = styled.footer`
     background-color: black;
     color: white;
+    height: 209px;
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        padding-top: 66px;
+        @media (max-width: 768px) {
+            padding-top: 62px;
+        }
+    }
+
+    p {
+        padding-bottom: 29px;
+        font-weight: 500;
+        font-size: 24px;
+        @media (max-width: 768px) {
+            padding-bottom: 62px;
+            font-size: 12px;
+        }
+    }
 `
 
 const Footer = () => {
