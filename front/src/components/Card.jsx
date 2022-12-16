@@ -2,7 +2,7 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-const CardStyle = styled(Link)`
+export const CardStyle = styled(Link)`
     width: 340px;
     height: 340px;
     border-radius: 10px;
@@ -54,7 +54,7 @@ const CardStyle = styled(Link)`
     }
 `
 
-const Card = ({ updateCurrentPage, id, cover, alt, title }) => {
+export const Card = ({ updateCurrentPage, id, cover, alt, title }) => {
     const relativePath = "/lodging/" + id
     return (
         <CardStyle
@@ -67,5 +67,3 @@ const Card = ({ updateCurrentPage, id, cover, alt, title }) => {
         </CardStyle>
     )
 }
-
-export default Card

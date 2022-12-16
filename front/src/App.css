@@ -23,6 +23,17 @@ a:visited {
     text-decoration: unset;
 }
 
+ul {
+    list-style-type: none;
+}
+
+button,
+button:focus {
+    outline: unset;
+    background: unset;
+    border: unset;
+}
+
 #root {
     display: flex;
     flex-direction: column;

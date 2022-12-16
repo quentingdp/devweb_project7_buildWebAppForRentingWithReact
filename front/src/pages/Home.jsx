@@ -1,13 +1,14 @@
 //Imports of external libraries
 import styled from "styled-components"
+import { useEffect, useState } from "react"
 
 //Internal dependancies
-import Banner from "../components/Banner"
-import Card from "../components/Card"
+import { Banner } from "../components/Banner"
+import { Card, CardStyle } from "../components/Card"
 import bannerHome from "../images/banner_home.png"
-import test from "../images/banner_about.png"
+import getLodgings from "../services/getLodgings"
 
-const MainStyle = styled.main`
+export const HomeStyle = styled.main`
     padding: 63px 100px 0 100px;
     display: flex;
     flex-direction: column;
@@ -35,8 +36,8 @@ const MainStyle = styled.main`
             justify-content: unset;
         }
 
-        > * {
-            margin: 10px 10px 50px 10px;
+        ${CardStyle} {
+            margin: 10px 15px 50px 15px;
             @media (max-width: 768px) {
                 margin: 0 0 20px 0;
             }
@@ -44,53 +45,41 @@ const MainStyle = styled.main`
     }
 `
 
-const Home = ({ updateCurrentPage }) => {
-    return (
-        <MainStyle>
+export const Home = ({ updateCurrentPage }) => {
+    const [lodgings, updateLodgings] = useState({})
+
+    useEffect(() => {
+        getLodgings()
+            .then((res) => updateLodgings(res))
+            .catch((err) => console.error(err))
+    }, [])
+
+    return lodgings.length !== undefined ? (
+        <HomeStyle>
             <Banner
                 src={bannerHome}
                 alt="Image de bannière de la page d'accueil"
                 description="Chez vous, partout et ailleurs"
+                target="home"
             />
             <div className="lodging-list">
-                <Card
-                    updateCurrentPage={updateCurrentPage}
-                    id="fkjfldmsqj"
-                    cover={test}
-                    alt="notProvided"
-                    title="Titre de la location"
-                />
-                <Card
-                    updateCurrentPage={updateCurrentPage}
-                    id="toto"
-                    cover={test}
-                    alt="notProvided"
-                    title="toto"
-                />
-                <Card
-                    updateCurrentPage={updateCurrentPage}
-                    id="titi"
-                    cover={test}
-                    alt="non donné"
-                    title="titi"
-                />
-                <Card
-                    updateCurrentPage={updateCurrentPage}
-                    id="fdsqf"
-                    cover={test}
-                    alt="notProvided"
-                    title="Titre de la location fdsqf"
-                />
-                <Card
-                    updateCurrentPage={updateCurrentPage}
-                    id="rezartery"
-                    cover={test}
-                    alt="notProvided"
-                    title="Titre de la location rezartery"
-                />
+                {lodgings.map(({ id, title, cover }) => {
+                    return (
+                        <Card
+                            key={id}
+                            updateCurrentPage={updateCurrentPage}
+                            id={id}
+                            cover={cover}
+                            alt={"Photo de " + title}
+                            title={title}
+                        />
+                    )
+                })}
             </div>
-        </MainStyle>
+        </HomeStyle>
+    ) : (
+        <HomeStyle>
+            <h1>En cours de chargement</h1>
+        </HomeStyle>
     )
 }
-
-export default Home

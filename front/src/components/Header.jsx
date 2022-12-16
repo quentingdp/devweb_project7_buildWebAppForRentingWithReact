@@ -3,11 +3,11 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 //Internal dependancies
-import Logo from "./Logo"
+import { Logo } from "./Logo"
 import logoDesktop from "../images/logo_header_desktop.svg"
 import logoMobile from "../images/logo_header_mobile.svg"
 
-const HeaderStyle = styled.header`
+export const HeaderStyle = styled.header`
     color: #ff6060;
     font-weight: 500;
     font-size: 24px;
@@ -56,7 +56,7 @@ const HeaderStyle = styled.header`
  * Formatting of the header : only one of the 2 logos will be displayed, cf. the Logo component
  * @returns
  */
-const Header = ({ currentPage, updateCurrentPage }) => {
+export const Header = ({ currentPage, updateCurrentPage }) => {
     //Define if the class "current-page" should be applied : i.e. we underline links if the current route corresponds to the link destination
     let classHomePage = ""
     let classAboutPage = ""
@@ -68,8 +68,8 @@ const Header = ({ currentPage, updateCurrentPage }) => {
 
     return (
         <HeaderStyle>
-            <Logo src={logoDesktop} device="Desktop" />
-            <Logo src={logoMobile} device="Mobile" />
+            <Logo src={logoDesktop} device="desktop" />
+            <Logo src={logoMobile} device="mobile" />
             <nav>
                 <Link
                     to="/"
@@ -89,5 +89,3 @@ const Header = ({ currentPage, updateCurrentPage }) => {
         </HeaderStyle>
     )
 }
-
-export default Header

@@ -1,7 +1,7 @@
 //Imports of external libraries
 import styled from "styled-components"
 
-const BannerStyle = styled.div`
+export const BannerStyle = styled.div`
     height: 223px;
     font-weight: 500;
     font-size: 48px;
@@ -10,7 +10,6 @@ const BannerStyle = styled.div`
 
     @media (max-width: 768px) {
         font-size: 24px;
-        height: 111px;
     }
 
     img {
@@ -39,15 +38,25 @@ const BannerStyle = styled.div`
             transform: translate(0, -50%);
         }
     }
+
+    .home {
+        @media (max-width: 768px) {
+            height: 111px;
+        }
+    }
+
+    .about {
+        @media (max-width: 768px) {
+            height: 223px;
+        }
+    }
 `
 
-const Banner = ({ src, alt, description }) => {
+export const Banner = ({ src, alt, description, target }) => {
     return (
-        <BannerStyle>
+        <BannerStyle className={target}>
             <img src={src} alt={alt} />
             <p>{description}</p>
         </BannerStyle>
     )
 }
-
-export default Banner

@@ -2,7 +2,7 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-const MainStyle = styled.main`
+export const E404Style = styled.main`
     max-width: 1440px;
     padding: 169px 100px 159px 100px;
     text-align: center;
@@ -38,16 +38,14 @@ const MainStyle = styled.main`
     }
 `
 
-const E404 = ({ updateCurrentPage }) => {
+export const E404 = ({ updateCurrentPage }) => {
     return (
-        <MainStyle>
+        <E404Style>
             <h1>404</h1>
             <p>Oups! La page que vous demandez n'existe pas.</p>
             <Link to="/" onClick={() => updateCurrentPage("/")}>
                 Retourner sur la page d'accueil
             </Link>
-        </MainStyle>
+        </E404Style>
     )
 }
-
-export default E404

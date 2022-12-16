@@ -2,10 +2,10 @@
 import styled from "styled-components"
 
 //Internal dependancies
-import Logo from "./Logo"
+import { Logo } from "./Logo"
 import logoFooter from "../images/logo_footer.svg"
 
-const FooterStyle = styled.footer`
+export const FooterStyle = styled.footer`
     background-color: black;
     color: white;
     height: 209px;
@@ -34,13 +34,11 @@ const FooterStyle = styled.footer`
     }
 `
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <FooterStyle>
-            <Logo src={logoFooter} device="Both" />
+            <Logo src={logoFooter} device="both" />
             <p>© 2020 Kasa. All rights reserved</p>
         </FooterStyle>
     )
 }
-
-export default Footer
