@@ -38,23 +38,11 @@ export const BannerStyle = styled.div`
             transform: translate(0, -50%);
         }
     }
-
-    .home {
-        @media (max-width: 768px) {
-            height: 111px;
-        }
-    }
-
-    .about {
-        @media (max-width: 768px) {
-            height: 223px;
-        }
-    }
 `
 
-export const Banner = ({ src, alt, description, target }) => {
+export const Banner = ({ src, alt, description }) => {
     return (
-        <BannerStyle className={target}>
+        <BannerStyle>
             <img src={src} alt={alt} />
             <p>{description}</p>
         </BannerStyle>

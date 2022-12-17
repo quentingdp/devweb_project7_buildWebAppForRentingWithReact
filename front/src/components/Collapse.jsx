@@ -2,7 +2,7 @@
 import styled from "styled-components"
 import { useState } from "react"
 
-export const CollapseStyle = styled.div`
+export const CollapseStyle = styled.li`
     background-color: #f6f6f6;
     color: #ff6060;
     border-radius: 10px;

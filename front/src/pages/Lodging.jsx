@@ -1,12 +1,77 @@
 //Imports of external libraries
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import styled from "styled-components"
 
 //Internal dependancies
-import { Slideshow } from "../components/Slideshow"
+import { Gallery } from "../components/Gallery"
 import { Tag } from "../components/Tag"
-import { Collapse } from "../components/Collapse"
+import { Collapse, CollapseStyle } from "../components/Collapse"
 import getLodgingDetails from "../services/getLodgingDetails"
+
+export const LodgingStyle = styled.main`
+    padding: 20px 0 0 0;
+    width: 100vw;
+    max-width: min(1440px, 100%);
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+
+    > * {
+        grid-column-start: 2;
+    }
+
+    @media (max-width: 768px) {
+        padding: 27px 0 0 0;
+        grid-template-columns: 20px 1fr 20px;
+    }
+
+    .lodging-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: unset;
+        }
+    }
+
+    .lodging-summary {
+        color: blue;
+        ul {
+            display: flex;
+        }
+    }
+
+    .lodging-social {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        @media (max-width: 768px) {
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+        div {
+            display: flex;
+        }
+    }
+
+    .lodging-desc {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+        ${CollapseStyle} {
+            width: 40%;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    }
+`
 
 export const Lodging = () => {
     const { lodging } = useParams()
@@ -25,28 +90,33 @@ export const Lodging = () => {
     })
 
     return lodgingDetails !== null ? (
-        <main>
-            <Slideshow />
-            <div>
-                <h1>{lodgingDetails.title}</h1>
-                <p>{lodgingDetails.location}</p>
-                <ul>
-                    {lodgingDetails.tags.map((tag) => {
-                        return <Tag tag={tag} />
-                    })}
-                </ul>
-            </div>
-            <div>
-                <div>
-                    <p>{lodgingDetails.host.name}</p>
-                    <img
-                        src={lodgingDetails.host.picture}
-                        alt={"Photo de " + lodgingDetails.host.name}
-                    />
+        <LodgingStyle>
+            <Gallery
+                pictures={lodgingDetails.pictures}
+                alt={"Photo de " + lodgingDetails.title}
+            />
+            <div className="lodging-meta">
+                <div className="lodging-summary">
+                    <h1>{lodgingDetails.title}</h1>
+                    <p>{lodgingDetails.location}</p>
+                    <ul>
+                        {lodgingDetails.tags.map((tag, index) => {
+                            return <Tag key={`${index}-${tag}`} tag={tag} />
+                        })}
+                    </ul>
                 </div>
-                <p>{lodgingDetails.rating}</p>
+                <div className="lodging-social">
+                    <div>
+                        <p>{lodgingDetails.host.name}</p>
+                        <img
+                            src={lodgingDetails.host.picture}
+                            alt={"Photo de " + lodgingDetails.host.name}
+                        />
+                    </div>
+                    <p>{lodgingDetails.rating}</p>
+                </div>
             </div>
-            <ul>
+            <ul className="lodging-desc">
                 <Collapse
                     title="Description"
                     body={lodgingDetails.description}
@@ -56,10 +126,10 @@ export const Lodging = () => {
                     body={lodgingDetails.equipments.join("\n")}
                 />
             </ul>
-        </main>
+        </LodgingStyle>
     ) : (
-        <main>
+        <LodgingStyle>
             <h1>En cours de chargement</h1>
-        </main>
+        </LodgingStyle>
     )
 }

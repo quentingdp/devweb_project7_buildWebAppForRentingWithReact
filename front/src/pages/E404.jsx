@@ -3,12 +3,21 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export const E404Style = styled.main`
-    max-width: 1440px;
-    padding: 169px 100px 159px 100px;
+    width: 100vw;
+    max-width: min(1440px, 100%);
+    padding: 169px 0 159px 0;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
     text-align: center;
     color: #ff6060;
+
+    > * {
+        grid-column-start: 2;
+    }
+
     @media (max-width: 768px) {
-        padding: 195px 20px 235px 20px;
+        padding: 195px 0 235px 0;
+        grid-template-columns: 20px 1fr 20px;
     }
     h1 {
         margin-bottom: 66px;

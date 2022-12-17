@@ -3,19 +3,31 @@ import styled from "styled-components"
 import { useEffect, useState } from "react"
 
 //Internal dependancies
-import { Banner } from "../components/Banner"
+import { Banner, BannerStyle } from "../components/Banner"
 import { Card, CardStyle } from "../components/Card"
 import bannerHome from "../images/banner_home.png"
 import getLodgings from "../services/getLodgings"
 
 export const HomeStyle = styled.main`
-    padding: 63px 100px 0 100px;
-    display: flex;
-    flex-direction: column;
-    max-width: 1440px;
+    padding-top: 63px;
+    width: 100vw;
+    max-width: min(1440px, 100%);
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+
+    > * {
+        grid-column-start: 2;
+    }
 
     @media (max-width: 768px) {
-        padding: 16px 20px 0 20px;
+        padding-top: 16px;
+        grid-template-columns: 20px 1fr 20px;
+    }
+
+    ${BannerStyle} {
+        @media (max-width: 768px) {
+            height: 111px;
+        }
     }
 
     .lodging-list {
@@ -60,7 +72,6 @@ export const Home = ({ updateCurrentPage }) => {
                 src={bannerHome}
                 alt="Image de bannière de la page d'accueil"
                 description="Chez vous, partout et ailleurs"
-                target="home"
             />
             <div className="lodging-list">
                 {lodgings.map(({ id, title, cover }) => {
