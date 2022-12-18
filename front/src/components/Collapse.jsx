@@ -55,7 +55,7 @@ export const CollapseStyle = styled.li`
         transform: scale(2, 1) rotate(90deg);
     }
 `
-
+//For the collapse, the state display can have 2 values : visible or hidden. The paragraph is displayed or not, depending on this value
 export const Collapse = ({ title, body }) => {
     const [display, updateDisplay] = useState("hidden")
 

@@ -68,7 +68,7 @@ export const GalleryStyle = styled.div`
         }
     }
 `
-
+//The state holds the index of the photo that should be displayed. Warning : index starts at 1 to keep consistency between this index and what is displayed in desktop version
 export const Gallery = ({ pictures, alt }) => {
     const [pictureIndex, updateIndex] = useState(1)
     const totalPictures = pictures.length

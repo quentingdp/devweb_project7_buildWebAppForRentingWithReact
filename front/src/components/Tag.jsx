@@ -2,7 +2,8 @@
 import styled from "styled-components"
 
 export const TagStyle = styled.li`
-    padding: 3px 0;
+    min-width: 115px;
+    padding: 3px 10px;
     border-radius: 10px;
     text-align: center;
     background-color: #ff6060;
@@ -11,6 +12,7 @@ export const TagStyle = styled.li`
     font-size: 14px;
 
     @media (max-width: 768px) {
+        min-width: 84px;
         font-size: 10px;
         border-radius: 5px;
     }

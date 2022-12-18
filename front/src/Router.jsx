@@ -9,6 +9,7 @@ import { About } from "./pages/About"
 import { Lodging } from "./pages/Lodging"
 import { E404 } from "./pages/E404"
 
+//Definition of the rooter. The currentPage state is defined here to be used in the Header : we underline the navigation link if we are in the corresponding route
 const Router = () => {
     const [currentPage, updateCurrentPage] = useState(window.location.pathname)
 
