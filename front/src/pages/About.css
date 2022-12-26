@@ -1,0 +1,31 @@
+.about-main {
+    padding: 44px 0 46px 0;
+    width: 100vw;
+    max-width: min(1440px, 100%);
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+}
+.about-main > * {
+    grid-column-start: 2;
+}
+.about-main ul {
+    margin: 0 108px;
+}
+.about-main ul .collapse-style {
+    margin-top: 31px;
+}
+@media (max-width: 768px) {
+    .about-main {
+        padding: 17px 0 168px 0;
+        grid-template-columns: 20px 1fr 20px;
+    }
+    .about-main .banner-style {
+        height: 223px;
+    }
+    .about-main ul {
+        margin: 0;
+    }
+    .about-main ul .collapse-style {
+        margin-top: 20px;
+    }
+}
