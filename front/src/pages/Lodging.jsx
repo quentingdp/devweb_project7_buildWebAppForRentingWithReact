@@ -6,7 +6,7 @@ import styled from "styled-components"
 //Internal dependancies
 import { Gallery } from "../components/Gallery"
 import { Tag } from "../components/Tag"
-import { Collapse, CollapseStyle } from "../components/Collapse"
+import { Collapse } from "../components/Collapse"
 import getLodgingDetails from "../services/getLodgingDetails"
 import starActive from "../images/star_icon_active.svg"
 import starInactive from "../images/star_icon_inactive.svg"
@@ -137,7 +137,7 @@ export const LodgingStyle = styled.main`
             flex-direction: column;
         }
 
-        ${CollapseStyle} {
+        .collapse-style {
             width: 47%;
             @media (max-width: 768px) {
                 width: 100%;

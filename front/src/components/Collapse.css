@@ -1,0 +1,59 @@
+.collapse-style {
+    background-color: #f6f6f6;
+    color: #ff6060;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.collapse-style div {
+    height: 47px;
+    padding: 0 18px 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff6060;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.collapse-style > p {
+    white-space: pre-line;
+    padding: 27px 12px 19px 20px;
+}
+
+.collapse-style button {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.collapse-style button:hover {
+    cursor: pointer;
+}
+
+.collapse-style .visible {
+    transform: scale(2, 1) rotate(-90deg);
+}
+
+.collapse-style .hidden {
+    transform: scale(2, 1) rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .collapse-style div {
+        height: 30px;
+        padding: 0 10px 0 12px;
+        font-size: 13px;
+    }
+
+    .collapse-style > p {
+        padding: 17px 6px 9px 11px;
+        font-size: 12px;
+    }
+
+    .collapse-style button {
+        font-size: 13px;
+    }
+}

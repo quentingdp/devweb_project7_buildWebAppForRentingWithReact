@@ -1,0 +1,12 @@
+.logo-mobile-style {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .logo-desktop-style {
+        display: none;
+    }
+    .logo-mobile-style {
+        display: unset;
+    }
+}

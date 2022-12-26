@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 //Internal dependancies
 import { Banner, BannerStyle } from "../components/Banner"
-import { CollapseStyle, Collapse } from "../components/Collapse"
+import { Collapse } from "../components/Collapse"
 import bannerAbout from "../images/banner_about.png"
 
 export const AboutStyle = styled.main`
@@ -33,7 +33,7 @@ export const AboutStyle = styled.main`
         @media (max-width: 768px) {
             margin: 0;
         }
-        ${CollapseStyle} {
+        .collapse-style {
             margin-top: 31px;
             @media (max-width: 768px) {
                 margin-top: 20px;
