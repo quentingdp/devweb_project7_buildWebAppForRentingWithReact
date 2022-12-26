@@ -1,0 +1,18 @@
+.tag-style {
+    min-width: 115px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ff6060;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .tag-style {
+        min-width: 84px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+}

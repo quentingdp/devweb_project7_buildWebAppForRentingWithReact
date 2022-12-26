@@ -1,0 +1,129 @@
+.lodging-main {
+    padding: 20px 0 0 0;
+    width: 100vw;
+    max-width: min(1440px, 100%);
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+}
+.lodging-main > * {
+    grid-column-start: 2;
+}
+.lodging-main .lodging-meta {
+    padding: 30px 0 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lodging-main .lodging-summary {
+    color: #ff6060;
+    font-weight: 500;
+}
+.lodging-main .lodging-summary ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.lodging-main .lodging-summary ul > * {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.lodging-main .lodging-summary h1 {
+    font-size: 36px;
+    margin-bottom: 0;
+}
+.lodging-main .lodging-summary p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.lodging-main .lodging-social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+    text-align: right;
+    color: #ff6060;
+    font-weight: 500;
+    font-size: 18px;
+}
+.lodging-main .lodging-social div {
+    display: flex;
+    align-items: center;
+}
+.lodging-main .lodging-social p {
+    width: 93px;
+}
+.lodging-main .lodging-social .host-photo {
+    height: 64px;
+    width: 64px;
+    min-width: 64px;
+    border-radius: 32px;
+    margin-left: 10px;
+    object-fit: cover;
+    overflow: hidden;
+}
+.lodging-main .rating {
+    height: 30px;
+    width: 190px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.lodging-main .rating img {
+    width: 30px;
+}
+.lodging-main .lodging-desc {
+    padding-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.lodging-main .lodging-desc .collapse-style {
+    width: 47%;
+}
+@media (max-width: 768px) {
+    .lodging-main {
+        padding: 27px 0 0 0;
+        grid-template-columns: 20px 1fr 20px;
+    }
+    .lodging-main .lodging-meta {
+        padding: 15px 0 16px 0;
+        flex-direction: column;
+        align-items: unset;
+    }
+    .lodging-main .lodging-summary h1 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .lodging-main .lodging-summary p {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    .lodging-main .lodging-social {
+        flex-direction: row-reverse;
+        align-items: center;
+        font-size: 12px;
+        margin-top: 16px;
+    }
+    .lodging-main .lodging-social .host-photo {
+        height: 32px;
+        width: 32px;
+        min-width: 32px;
+        border-radius: 16px;
+    }
+    .lodging-main .rating {
+        height: 15px;
+        width: 95px;
+        margin-bottom: 0;
+    }
+    .lodging-main .rating img {
+        width: 15px;
+    }
+    .lodging-main .lodging-desc {
+        padding-bottom: 44px;
+        flex-direction: column;
+    }
+    .lodging-main .lodging-desc .collapse-style {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

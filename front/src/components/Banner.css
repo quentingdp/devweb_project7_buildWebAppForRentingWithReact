@@ -1,0 +1,42 @@
+.banner-style {
+    height: 223px;
+    font-weight: 500;
+    font-size: 48px;
+    color: white;
+    position: relative;
+}
+
+.banner-style img {
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    overflow: hidden;
+    filter: brightness(0.7);
+}
+
+.banner-style p {
+    position: absolute;
+    transform-origin: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .banner-style {
+        font-size: 24px;
+    }
+
+    .banner-style img {
+        border-radius: 10px;
+    }
+
+    .banner-style p {
+        text-align: left;
+        left: 36px;
+        transform: translate(0, -50%);
+    }
+}
